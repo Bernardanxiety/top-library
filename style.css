@@ -1,0 +1,100 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  font-family: sans-serif;
+}
+
+label,
+input,
+button {
+  font: inherit;
+}
+
+/* .margin-top > * + * {
+  margin-top: var(--top, 1em);
+} */
+
+.library {
+  width: min(90%, 78rem);
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 0;
+}
+
+.open-modal {
+  align-self: center;
+  margin-bottom: 4rem;
+}
+
+.library-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, max-content));
+  gap: 2rem;
+}
+
+.book {
+  box-shadow: 0 0 10px 1px grey;
+  padding: 2rem 1.5rem;
+  max-width: 300px;
+}
+
+.add-book {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  place-items: center;
+}
+
+.add-form {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.add-form > div {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.add-form input {
+  appearance: none;
+  border: 1px solid grey;
+  background: none;
+  padding: 0.25em;
+}
+
+.add-form label {
+  display: block;
+  margin-bottom: 0.2em;
+}
+
+.button {
+  padding: 0.35em 1.5em;
+  appearance: none;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  letter-spacing: 2px;
+  border-radius: 7px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.add-form button {
+  justify-self: center;
+}
