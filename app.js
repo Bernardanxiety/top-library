@@ -39,27 +39,30 @@ function showBooks() {
         "display: flex; flex-direction: column; gap: 1em"
       );
       const author = document.createElement("h2");
-      author.textContent = `Author: ${a.author}`;
       const title = document.createElement("p");
-      title.textContent = `Title: ${a.title}`;
       const isRead = document.createElement("p");
-      isRead.textContent = `Read: ${a.read === false ? "no" : "yes"}`;
       const buttonsDiv = document.createElement("div");
+      const button = document.createElement("button");
+      const removeButton = document.createElement("button");
+
+      author.textContent = `Author: ${a.author}`;
+      title.textContent = `Title: ${a.title}`;
+      isRead.textContent = `Read: ${a.read === false ? "no" : "yes"}`;
+      button.textContent = "Read";
+      removeButton.textContent = "Remove";
+
       buttonsDiv.setAttribute(
         "style",
         "display: flex; gap: 1.5rem; margin-top: auto;"
       );
-      const button = document.createElement("button");
-      button.textContent = "Read";
+      removeButton.className = "button";
       button.className = "button";
+
       button.addEventListener("click", (e) => {
         a.isRead();
         isRead.textContent = `Read: ${a.read === false ? "no" : "yes"}`;
       });
-      const removeButton = document.createElement("button");
       removeButton.setAttribute("id", "remove");
-      removeButton.textContent = "Remove";
-      removeButton.className = "button";
       removeButton.addEventListener("click", (e) => {
         const removeId = a.id;
         const child = document.getElementById(removeId);
@@ -67,6 +70,7 @@ function showBooks() {
         library.library.splice(removeIndex, 1);
         libraryContainer.removeChild(child);
       });
+
       div.appendChild(author);
       div.appendChild(title);
       div.appendChild(isRead);
